@@ -16,7 +16,7 @@ CREATE TABLE IF NOT exists work_flow.user(
 );
 
 CREATE TABLE IF NOT exists work_flow.apparea (
-  id BIGINT(25) NOT NULL,
+  id BIGINT(25) AUTO_INCREMENT NOT NULL,
   name VARCHAR(45) NULL,
   description VARCHAR(45) NULL,
   team_id BIGINT(25) NULL,
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT exists work_flow.user_apparea (
     ON UPDATE CASCADE);
 
 CREATE TABLE IF NOT exists work_flow.post (
-  id BIGINT(25) NOT NULL,
+  id BIGINT(25) AUTO_INCREMENT NOT NULL,
   post_id BIGINT(25) NOT NULL,
   user_id BIGINT(25) NOT NULL,
-  date_time DATETIME NOT NULL,
+  date_time VARCHAR(32) NOT NULL,
   title VARCHAR(45) NOT NULL,
   content VARCHAR(1000) NOT NULL,
   apparea_id BIGINT(25) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT exists work_flow.comment (
   user_id BIGINT(25) NULL,
   post_id BIGINT(25) NULL,
   content VARCHAR(500) NULL,
-  date_time DATETIME NULL,
+  date_time VARCHAR(32) NULL,
   PRIMARY KEY (id),
   INDEX fk_userid_comment_idx (user_id ASC),
   INDEX fk_postid_comment_idx (post_id ASC),
@@ -87,4 +87,18 @@ CREATE TABLE IF NOT exists work_flow.comment (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
+CREATE TABLE IF NOT EXISTS work_flow.best_answer(
+  post_id BIGINT(25),
+  answer_id BIGINT(25),
+  CONSTRAINT fk_post_id
+  FOREIGN KEY (post_id)
+  REFERENCES work_flow.post (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT fk_answer_id
+  FOREIGN KEY (answer_id)
+  REFERENCES work_flow.post (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 

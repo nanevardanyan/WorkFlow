@@ -23,5 +23,7 @@
         <servlet-name>AddPost</servlet-name>
         <url-pattern>/addPost</url-pattern>
     </servlet-mapping>
+    
+
 
 </web-app>

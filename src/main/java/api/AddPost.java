@@ -1,6 +1,7 @@
 package api;
 
-import dao.PostDAO;
+import dao.PostDAOImpl;
+import dao.interfaces.PostDAO;
 import dataModel.Post;
 
 import javax.servlet.ServletException;
@@ -21,13 +22,15 @@ public class AddPost extends HttpServlet{
         long appAreaId = Long.valueOf(req.getParameter("appAreaId"));
         String title = req.getParameter("title");
         String content = req.getParameter("content");
+
         Post post = new Post();
         post.setUserId(userId);
         post.setAppAreaId(appAreaId);
         post.setTitle(title);
         post.setContent(content);
 
-        boolean success = PostDAO.addPost(post);
+        PostDAO postDAO = new PostDAOImpl();
+        boolean success = postDAO.addPost(post);
         if (!success){
             resp.setStatus(400);
         }else {
