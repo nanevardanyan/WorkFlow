@@ -7,8 +7,8 @@ CREATE TABLE IF NOT exists work_flow.team (
 
 CREATE TABLE IF NOT exists work_flow.user(
   id BIGINT(25) NOT NULL AUTO_INCREMENT,
-  firstName VARCHAR(45) NOT NULL,
-  lastName VARCHAR(45) NOT NULL,
+  first_name VARCHAR(45) NOT NULL,
+  last_name VARCHAR(45) NOT NULL,
   email VARCHAR(45) NOT NULL ,
   passcode VARCHAR(45),
   rating INT NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT exists work_flow.apparea (
   id BIGINT(25) NOT NULL,
   name VARCHAR(45) NULL,
   description VARCHAR(45) NULL,
-  teamId BIGINT(25) NULL,
+  team_id BIGINT(25) NULL,
   PRIMARY KEY (id),
   INDEX teamId_idx (teamId ASC),
   CONSTRAINT teamId
@@ -45,8 +45,8 @@ CREATE TABLE IF NOT exists work_flow.user_apparea (
     ON UPDATE CASCADE);
 
 CREATE TABLE IF NOT exists work_flow.post (
+  id BIGINT(25) NOT NULL,
   post_id BIGINT(25) NOT NULL,
-  answer_id BIGINT(25) NOT NULL,
   user_id BIGINT(25) NOT NULL,
   date_time DATETIME NOT NULL,
   title VARCHAR(45) NOT NULL,

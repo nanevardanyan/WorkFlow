@@ -6,8 +6,8 @@ import java.util.Date;
  * Created by nane on 5/26/17.
  */
 public class Post {
+    private long id;
     private long postId;
-    private long answerId;
     private long userId;
     private long appAreaId;
     private Date timestamp;
@@ -15,20 +15,20 @@ public class Post {
     private String content;
     private boolean isCorrect;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getPostId() {
         return postId;
     }
 
     public void setPostId(long postId) {
         this.postId = postId;
-    }
-
-    public long getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(long answerId) {
-        this.answerId = answerId;
     }
 
     public long getUserId() {
