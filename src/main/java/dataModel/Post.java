@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Post {
     private long postId;
-    private long commentId;
+    private long answerId;
     private long userId;
     private long appAreaId;
     private Date timestamp;
@@ -23,12 +23,12 @@ public class Post {
         this.postId = postId;
     }
 
-    public long getCommentId() {
-        return commentId;
+    public long getAnswerId() {
+        return answerId;
     }
 
-    public void setCommentId(long commentId) {
-        this.commentId = commentId;
+    public void setAnswerId(long answerId) {
+        this.answerId = answerId;
     }
 
     public long getUserId() {
