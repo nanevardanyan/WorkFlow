@@ -7,9 +7,9 @@ import java.util.Date;
  */
 public class Post {
     private long id;
-    private long postId;
-    private long userId;
-    private long appAreaId;
+    private Post post;
+    private User user;
+    private AppArea appArea;
     private Date timestamp;
     private String title;
     private String content;
@@ -23,28 +23,28 @@ public class Post {
         this.id = id;
     }
 
-    public long getPostId() {
-        return postId;
+    public Post getPost() {
+        return post;
     }
 
-    public void setPostId(long postId) {
-        this.postId = postId;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
-    public long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public long getAppAreaId() {
-        return appAreaId;
+    public AppArea getAppArea() {
+        return appArea;
     }
 
-    public void setAppAreaId(long appAreaId) {
-        this.appAreaId = appAreaId;
+    public void setAppArea(AppArea appArea) {
+        this.appArea = appArea;
     }
 
     public Date getTimestamp() {

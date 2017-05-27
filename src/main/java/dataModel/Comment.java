@@ -7,8 +7,8 @@ import java.sql.Date;
  */
 public class Comment {
     private long id;
-    private long userId;
-    private long postId;
+    private User user;
+    private Post post;
     private String content;
     private Date dateTime;
 
@@ -20,20 +20,20 @@ public class Comment {
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public long getPostId() {
-        return postId;
+    public Post getPost() {
+        return post;
     }
 
-    public void setPostId(long postId) {
-        this.postId = postId;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public String getContent() {

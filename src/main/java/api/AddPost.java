@@ -1,7 +1,7 @@
 package api;
 
-import dao.PostDAOImpl;
-import dao.interfaces.PostDAO;
+import dao.impl.PostDAOImpl;
+import dao.PostDAO;
 import dataModel.Post;
 
 import javax.servlet.ServletException;

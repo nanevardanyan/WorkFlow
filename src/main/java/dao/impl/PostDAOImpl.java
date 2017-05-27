@@ -1,6 +1,6 @@
-package dao;
+package dao.impl;
 
-import dao.interfaces.PostDAO;
+import dao.PostDAO;
 import dataModel.Post;
 import util.DBHelper;
 
@@ -24,8 +24,8 @@ public class PostDAOImpl implements PostDAO {
                 " VALUE(?,?,?,?,?)";
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setLong(1, post.getUserId());
-            stmt.setLong(2, post.getAppAreaId());
+            stmt.setLong(1, post.getUser().getId());
+            stmt.setLong(2, post.getAppArea().getId());
             stmt.setString(3, dateFormat.format(date));
             stmt.setString(4, post.getTitle());
             stmt.setString(5, post.getContent());
