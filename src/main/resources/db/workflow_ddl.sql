@@ -83,7 +83,7 @@ CREATE TABLE IF NOT exists work_flow.comment (
     ON UPDATE CASCADE,
   CONSTRAINT fk_postid_comment
   FOREIGN KEY (post_id)
-  REFERENCES work_flow.post (post_id)
+  REFERENCES work_flow.post (id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
