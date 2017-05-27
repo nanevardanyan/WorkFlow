@@ -14,4 +14,14 @@
         <url-pattern></url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddPost</servlet-name>
+        <servlet-class>api.AddPost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddPost</servlet-name>
+        <url-pattern>/addPost</url-pattern>
+    </servlet-mapping>
+
 </web-app>
