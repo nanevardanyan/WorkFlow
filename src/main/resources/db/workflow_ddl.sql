@@ -55,7 +55,7 @@ CREATE TABLE IF NOT exists work_flow.post (
   is_correct BIT(2) NULL,
   INDEX fk_userId_idx (user_id ASC),
   INDEX fk_appareaId_idx (apparea_id ASC),
-  PRIMARY KEY (post_id),
+  PRIMARY KEY (id),
   CONSTRAINT fk_userId_post
   FOREIGN KEY (user_id)
   REFERENCES work_flow.user (id)
