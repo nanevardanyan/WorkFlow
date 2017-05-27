@@ -21,9 +21,9 @@ CREATE TABLE IF NOT exists work_flow.apparea (
   description VARCHAR(45) NULL,
   team_id BIGINT(25) NULL,
   PRIMARY KEY (id),
-  INDEX teamId_idx (teamId ASC),
+  INDEX teamId_idx (team_id ASC),
   CONSTRAINT teamId
-  FOREIGN KEY (teamId) REFERENCES work_flow.team (id)
+  FOREIGN KEY (team_id) REFERENCES work_flow.team (id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT exists work_flow.post (
   is_correct BIT(2) NULL,
   INDEX fk_userId_idx (user_id ASC),
   INDEX fk_appareaId_idx (apparea_id ASC),
-  PRIMARY KEY (post_id, answer_id),
+  PRIMARY KEY (post_id),
   CONSTRAINT fk_userId_post
   FOREIGN KEY (user_id)
   REFERENCES work_flow.user (id)
