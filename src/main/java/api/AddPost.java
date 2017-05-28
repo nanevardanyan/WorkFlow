@@ -24,8 +24,8 @@ public class AddPost extends HttpServlet{
         String content = req.getParameter("content");
 
         Post post = new Post();
-        post.setUserId(userId);
-        post.setAppAreaId(appAreaId);
+        //post.setUserId(userId);
+        //post.setAppAreaId(appAreaId);
         post.setTitle(title);
         post.setContent(content);
 

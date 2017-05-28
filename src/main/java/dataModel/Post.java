@@ -1,6 +1,7 @@
 package dataModel;
 
 import java.util.Date;
+import java.util.StringJoiner;
 
 /**
  * Created by nane on 5/26/17.
@@ -10,7 +11,7 @@ public class Post {
     private Post post;
     private User user;
     private AppArea appArea;
-    private Date timestamp;
+    private String postTime;
     private String title;
     private String content;
     private boolean isCorrect;
@@ -47,12 +48,12 @@ public class Post {
         this.appArea = appArea;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public String getPostTime() {
+        return postTime;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+    public void setPostTime(String postTime) {
+        this.postTime = postTime;
     }
 
     public String getTitle() {
