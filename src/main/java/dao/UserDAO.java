@@ -10,10 +10,10 @@ import java.util.List;
  */
 public interface UserDAO {
 
-    boolean addUser(User user);
+    boolean add(User user);
 
     boolean subscribeToArea(User user, AppArea appArea);
 
-    List<User> getUserByName(String name);
+    List<User> getByName(String name);
 
 }

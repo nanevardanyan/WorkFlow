@@ -25,7 +25,7 @@ import java.util.List;
 public class PostDAOImpl implements PostDAO {
 
 
-    public boolean addPost(Post post) {
+    public boolean add(Post post) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         String sql = "INSERT INTO post(user_id, apparea_id, date_time, title, content) " +
@@ -48,12 +48,12 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public boolean updatePost(Post post) {
+    public boolean update(Post post) {
         return false;
     }
 
     @Override
-    public boolean deletePost(long id) {
+    public boolean delete(long id) {
         String sql = "DELETE FROM post WHERE id = ?";
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -69,7 +69,7 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public List<Post> getAllPosts() {
+    public List<Post> getAll() {
         List<Post> allPosts = new ArrayList<>();
         String sql = "SELECT post.id, user_id, user.first_name, user.last_name, " +
                 " user.email, user.rating, apparea_id, apparea.name, apparea.description, " +
@@ -101,7 +101,7 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public List<Post> getPostsByUserId(long userId) {
+    public List<Post> getByUserId(long userId) {
         List<Post> posts = new ArrayList<>();
         String sql = "SELECT (id, user_id, apparea_id, date_time, title, content) FROM post " +
                 " WHERE post_id = NULL AND user_id = ?";

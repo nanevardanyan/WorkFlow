@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public class UserDAOImpl implements UserDAO {
     @Override
-    public boolean addUser(User user) {
+    public boolean add(User user) {
         final String sql = "INSERT INTO work_flow.user (first_name, last_name, email, passcode, rating) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DBHelper.getConnection();
@@ -57,8 +58,24 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getUserByName(String name) {
-        return null;
+    public List<User> getByName(String name) {
+        String filteredName = name.replaceAll(" ","");
+        List<User> userList = new ArrayList<>();
+        final String sql = "SELECT * " +
+                "FROM work_flow.user " +
+                "WHERE CONCAT (firstName, lastName) LIKE ?%";
+        try (Connection conn = DBHelper.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, filteredName);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                userList.add(new User(
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 
     public static User fromResultSet(User user, ResultSet rs){

@@ -9,15 +9,15 @@ import java.util.List;
  */
 public interface PostDAO {
 
-    boolean addPost(Post post);
+    boolean add(Post post);
 
-    boolean updatePost(Post post);
+    boolean update(Post post);
 
-    boolean deletePost(long id);
+    boolean delete(long id);
 
-    List<Post> getAllPosts();
+    List<Post> getAll();
 
-    List<Post> getPostsByUserId(long userId);
+    List<Post> getByUserId(long userId);
 
     List<Post> getByTitle(String title);
 
