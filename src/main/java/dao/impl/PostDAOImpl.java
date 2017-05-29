@@ -176,7 +176,7 @@ public class PostDAOImpl implements PostDAO {
                     rs.getLong(rs.findColumn(DataBaseConstants.AppArea.id)));
 
             post.setAppArea(appArea);
-            
+
             post.setPostTime(rs.getString(rs.findColumn(DataBaseConstants.Post.dateTime)));
             post.setTitle(rs.getString(rs.findColumn(DataBaseConstants.Post.title)));
             post.setContent(rs.getString(rs.findColumn(DataBaseConstants.Post.content)));
