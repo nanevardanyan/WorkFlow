@@ -3,10 +3,13 @@ package dao.impl;
 import dao.UserDAO;
 import dataModel.AppArea;
 import dataModel.User;
+import dbConstants.DataBaseConstants;
 import util.DBHelper;
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -56,5 +59,19 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> getUserByName(String name) {
         return null;
+    }
+
+    public static User fromResultSet(User user, ResultSet rs){
+        try {
+            user.setId(rs.getLong(rs.findColumn(DataBaseConstants.Post.userId)));
+            user.setFirstName(rs.getString(rs.findColumn(DataBaseConstants.User.firstName)));
+            user.setLastName(rs.getString(rs.findColumn(DataBaseConstants.User.lastName)));
+            user.setEmail(rs.getString(rs.findColumn(DataBaseConstants.User.email)));
+            user.setRating(rs.getInt(rs.findColumn(DataBaseConstants.User.rating)));
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return user;
     }
 }

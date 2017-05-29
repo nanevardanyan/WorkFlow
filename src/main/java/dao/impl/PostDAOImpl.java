@@ -1,6 +1,9 @@
 package dao.impl;
 
+import app.App;
 import dao.PostDAO;
+import dao.UserDAO;
+import dataModel.AppArea;
 import dataModel.Post;
 import dataModel.User;
 import dbConstants.DataBaseConstants;
@@ -160,23 +163,20 @@ public class PostDAOImpl implements PostDAO {
         }
     }
 
-    private Post fromResultSet(Post post, ResultSet rs){
+    public static Post fromResultSet(Post post, ResultSet rs){
         try {
             post.setId(rs.getLong(rs.findColumn(DataBaseConstants.Post.id)));
 
+
             User user = new User();
-            user.setId(rs.getLong(rs.findColumn(DataBaseConstants.Post.userId)));
-            user.setFirstName(rs.getString(rs.findColumn(DataBaseConstants.User.firstName)));
-            user.setLastName(rs.getString(rs.findColumn(DataBaseConstants.User.lastName)));
-            user.setEmail(rs.getString(rs.findColumn(DataBaseConstants.User.email)));
-            user.setRating(rs.getInt(rs.findColumn(DataBaseConstants.User.rating)));
-
+            user = UserDAOImpl.fromResultSet(user, rs);
             post.setUser(user);
-//            Team team = new Team();
-//            team.setId(rs.getLong(rs.findColumn(DataBaseConstants.Team.id)));
-//            team.setName(rs.getString(rs.findColumn(DataBaseConstants.Team.name)));
-//            team.setOffice(rs.getString(rs.findColumn(DataBaseConstants.Team.office)));
 
+            AppArea appArea = AppArea.getById(
+                    rs.getLong(rs.findColumn(DataBaseConstants.AppArea.id)));
+
+            post.setAppArea(appArea);
+            
             post.setPostTime(rs.getString(rs.findColumn(DataBaseConstants.Post.dateTime)));
             post.setTitle(rs.getString(rs.findColumn(DataBaseConstants.Post.title)));
             post.setContent(rs.getString(rs.findColumn(DataBaseConstants.Post.content)));

@@ -33,4 +33,13 @@ public enum  AppArea {
     public Team getTeam() {
         return team;
     }
+
+    public static AppArea getById(long id){
+        AppArea [] appAreas = AppArea.values();
+        for (AppArea appArea: appAreas) {
+            if(appArea.getId() == id)
+                return appArea;
+        }
+        return null;
+    }
 }

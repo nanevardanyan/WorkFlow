@@ -30,4 +30,11 @@ public class DataBaseConstants {
         public static String name = "name";
         public static String office = "office";
     }
+
+    public static class AppArea{
+        public static String id = "id";
+        public static String teamId= "team_id";
+        public static String name = "name";
+        public static String description = "description";
+    }
 }
